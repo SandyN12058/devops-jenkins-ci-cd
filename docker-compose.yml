@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ${DOCKER_USERNAME}/assessment-platform:server-latest  # Use the image from Docker Hub
+    ports:
+      - "5000:5000"
+    env_file: 
+      - .env
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=${DATABASE_URL}
+
+  frontend:
+    image: ${DOCKER_USERNAME}/assessment-platform:client-latest  # Use the image from Docker Hub
+    ports:
+      - "3000:80"
+    env_file: 
+      - .env
+
+volumes:
+  mongo_data:
