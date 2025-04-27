@@ -1,7 +1,7 @@
-# frontend/Dockerfile
+# backend/Dockerfile
 
 # Use the official Node.js image
-FROM node:18 as build
+FROM node:18
 
 # Set the working directory
 WORKDIR /app
@@ -15,17 +15,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the application
-RUN npm run build
-
-# Use a lightweight server to serve the build
-FROM nginx:alpine
-
-# Copy the build files to Nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose the Nginx port
+# Expose the backend port
 EXPOSE 3000
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Run the backend file
+CMD ["node", "index.js"]
