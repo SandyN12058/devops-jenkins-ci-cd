@@ -1,3 +1,5 @@
+# backend/Dockerfile
+
 # Use the official Node.js image
 FROM node:18
 
@@ -13,8 +15,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the application port using an environment variable
-EXPOSE 5000
+# Expose the backend port
+EXPOSE 3000
 
-# Start the application and pass in the environment variables from .env
+# Run the backend file
 CMD ["node", "index.js"]
