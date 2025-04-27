@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const mongoose  = require("mongoose");
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const app = express();
 
@@ -15,7 +15,7 @@ const instructorRoutes = require("./routes/Instructor");
 const testRoutes = require("./routes/Test");
 const studentRoutes = require("./routes/Student")
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const databaseURL = process.env.DATABASE_URL;
 
 app.use(cors({
