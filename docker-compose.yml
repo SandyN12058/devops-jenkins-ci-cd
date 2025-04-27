@@ -2,21 +2,39 @@ version: '3.8'
 
 services:
   backend:
-    image: ${DOCKER_USERNAME}/assessment-platform:server-latest  # Use the image from Docker Hub
+    container_name: ${BACKEND_IMAGE}
+    image: ${BACKEND_IMAGE}
     ports:
-      - "5000:5000"
-    env_file: 
+      - "3000:3000"
+    networks:
+      - mern-network
+    depends_on:
+      - mongodb
+    env_file:
       - .env
-    environment:
-      - NODE_ENV=production
-      - MONGO_URI=${DATABASE_URL}
 
   frontend:
-    image: ${DOCKER_USERNAME}/assessment-platform:client-latest  # Use the image from Docker Hub
+    container_name: ${FRONTEND_IMAGE}
+    image: ${FRONTEND_IMAGE}
     ports:
-      - "3000:80"
-    env_file: 
-      - .env
+      - "80:80"
+    networks:
+      - mern-network
+
+  mongodb:
+    container_name: ${DATABASE_IMAGE}
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-network
+    volumes:
+      - mongo_data:/data/db
+
+networks:
+  mern-network:
+    driver: bridge
 
 volumes:
   mongo_data:
+    driver: local
