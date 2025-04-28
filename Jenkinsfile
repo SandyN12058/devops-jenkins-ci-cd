@@ -24,11 +24,11 @@ pipeline {
             steps {
                 script {
                     echo "🚀 Building backend image..."
-                    sh "docker build -t $BACKEND_IMAGE:latest ./backend"
+                    sh "docker build --no-cache -t $BACKEND_IMAGE:latest ./backend"
                     echo "✅ Backend image built successfully."
 
                     echo "🚀 Building frontend image..."
-                    sh "docker build -t $FRONTEND_IMAGE:latest ./frontend"
+                    sh "docker build --no-cache -t $FRONTEND_IMAGE:latest ./frontend"
                     echo "✅ Frontend image built successfully."
                 }
             }

@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000;
 const databaseURL = process.env.DATABASE_URL;
 
 app.use(cors({
-    origin: [process.env.ORIGIN],
+    origin: process.env.NODE_ENV === 'production'? process.env.PROD_ORIGIN : process.env.TEST_ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true
 }));

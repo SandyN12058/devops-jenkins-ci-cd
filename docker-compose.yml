@@ -12,6 +12,7 @@ services:
       - mongodb
     env_file:
       - .env
+    restart: always
 
   frontend:
     container_name: ${FRONTEND_IMAGE}
@@ -20,6 +21,7 @@ services:
       - "80:80"
     networks:
       - mern-network
+    restart: always
 
   mongodb:
     container_name: ${DATABASE_IMAGE}
@@ -30,6 +32,7 @@ services:
       - mern-network
     volumes:
       - mongo_data:/data/db
+    restart: always
 
 networks:
   mern-network:
