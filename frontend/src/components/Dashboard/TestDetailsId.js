@@ -11,7 +11,7 @@ import { getResults } from '../../services/operations/instructorApi'
 import { updateSubmissions } from '../../services/operations/submissionApi'
 
 const TestDetailsId = () => {
-    const HOST = "http://localhost:5000"
+    const HOST = "http://localhost:3000"
     const dispatch = useDispatch()
     const { testId } = useParams()
     const [loading, setLoading] = useState(false)

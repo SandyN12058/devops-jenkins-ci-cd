@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 const QuestionDisplay = ({question}) => {
-    const HOST = "http://localhost:5000"
+    const HOST = "http://localhost:3000"
     const [description, setDescription] = useState("");
     const [loading, setLoading] = useState(false)
 
