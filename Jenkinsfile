@@ -70,10 +70,31 @@ pipeline {
             }
         }
 
+        stage('Docker Cleanup') {
+            steps {
+                script {
+                    echo "🧹 Performing safe Docker cleanup to free disk space..."
+                    sh '''
+                        # Remove dangling images
+                        docker image prune -f
+
+                        # Remove unused volumes
+                        docker volume prune -f
+
+                        # Remove unused networks
+                        docker network prune -f
+
+                        echo "✅ Docker cleanup done."
+                    '''
+                }
+            }
+        }
+
         stage('Deploy Containers') {
             steps {
                 script {
                     echo "🚀 Deploying containers..."
+                    sh "docker-compose down --remove-orphans"
                     sh "docker-compose up -d --remove-orphans"
                     echo "✅ Deployment successful."
                 }
