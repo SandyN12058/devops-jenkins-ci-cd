@@ -11,7 +11,9 @@ services:
     depends_on:
       - mongodb
     env_file:
-      - .env
+      - backend/.env
+    environment:
+      - NODE_ENV=production
     restart: always
 
   frontend:
@@ -21,6 +23,10 @@ services:
       - "80:80"
     networks:
       - mern-network
+    env_file:
+      - frontend/.env
+    environment:
+      - NODE_ENV=production
     restart: always
 
   mongodb:
