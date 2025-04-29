@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NODE_ENV === 'production' ? `http://${process.env.BACKEND_IMAGE}:3000/api/v1` : "http://localhost:3000/api/v1";
+const BASE_URL = process.env.NODE_ENV === 'production' ? `http://${process.env.PROD_ORIGIN}:3000/api/v1` : "http://localhost:3000/api/v1";
 
 export const instructorEndpoints = {
     SIGNUP_API: BASE_URL + "/instructor/signUp",
