@@ -51,5 +51,4 @@ const server = app.listen(port, ()=>{
 })
 
 
-
 mongoose.connect(databaseURL).then(()=>console.log(`DB connection successful.`));
