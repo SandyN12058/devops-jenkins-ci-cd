@@ -4,7 +4,7 @@ const Student = require("../models/Student")
 const Submission = require("../models/Submission");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-require("dotenv").config({path: '../.env'});
+require("dotenv").config();
 
 
 //create instructor (signup) (login)

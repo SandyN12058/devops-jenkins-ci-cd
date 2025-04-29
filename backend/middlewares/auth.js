@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config({ path: '../.env' });
+require("dotenv").config();
 // const Instructor = require("../models/Instructor")
 
 
