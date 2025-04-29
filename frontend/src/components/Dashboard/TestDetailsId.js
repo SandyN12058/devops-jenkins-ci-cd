@@ -11,7 +11,9 @@ import { getResults } from '../../services/operations/instructorApi'
 import { updateSubmissions } from '../../services/operations/submissionApi'
 
 const TestDetailsId = () => {
-    const HOST = "http://localhost:3000"
+    
+    const HOST = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_TEST_URL;
+    
     const dispatch = useDispatch()
     const { testId } = useParams()
     const [loading, setLoading] = useState(false)

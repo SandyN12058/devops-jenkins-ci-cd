@@ -16,7 +16,7 @@ const testRoutes = require("./routes/Test");
 const studentRoutes = require("./routes/Student")
 
 const port = process.env.PORT || 3000;
-const databaseURL = process.env.DATABASE_URL;
+const databaseURL = process.env.NODE_ENV === 'production'? process.env.PROD_DATABASE_URL : process.env.TEST_DATABASE_URL;
 
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'? process.env.PROD_ORIGIN : process.env.TEST_ORIGIN,

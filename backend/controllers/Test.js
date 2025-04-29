@@ -1,9 +1,8 @@
 const Test = require("../models/Test");
 const Instructor = require("../models/Instructor");
-require("dotenv").config();
+
 
 // createTest
-
 exports.createTest = async(req, res) => {
     try{
         const {testName, instructorId, questions} = req.body

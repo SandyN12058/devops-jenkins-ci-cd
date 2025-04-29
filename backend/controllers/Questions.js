@@ -1,6 +1,5 @@
 const Question = require("../models/Questions");
 const {renameSync} = require("fs");
-require("dotenv").config();
 
 exports.createQuestion = async (req, res) => {
     try{

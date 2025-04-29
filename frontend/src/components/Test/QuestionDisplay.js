@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 const QuestionDisplay = ({question}) => {
-    const HOST = "http://localhost:3000"
+    const HOST = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_URL : process.env.REACT_APP_TEST_URL;
     const [description, setDescription] = useState("");
     const [loading, setLoading] = useState(false)
 

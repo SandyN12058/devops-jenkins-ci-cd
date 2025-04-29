@@ -1,7 +1,7 @@
 const Student = require("../models/Student");
 const Submission = require("../models/Submission")
 const axios = require('axios');
-require("dotenv").config();
+require("dotenv").config({path: '../'});
 
 // exports.runTest = async(req, res) => {
 //     try{
