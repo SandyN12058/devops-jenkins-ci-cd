@@ -4,7 +4,6 @@ pipeline {
     environment {
         BACKEND_IMAGE = "devops-jenkins-ci-cd-backend"
         FRONTEND_IMAGE = "devops-jenkins-ci-cd-frontend"
-        DOCKERHUB_REPO = "devops-jenkins-ci-cd"
     }
 
     stages {
@@ -43,23 +42,23 @@ pipeline {
                         echo "✅ Docker login successful."
 
                         echo "🏷️ Tagging backend images..."
-                        sh "docker tag $BACKEND_IMAGE:latest $DOCKER_USERNAME/$DOCKERHUB_REPO:backend-latest"
-                        sh "docker tag $BACKEND_IMAGE:latest $DOCKER_USERNAME/$DOCKERHUB_REPO:backend-v${BUILD_NUMBER}"
+                        sh "docker tag $BACKEND_IMAGE:latest $DOCKER_USERNAME/$BACKEND_IMAGE:backend-latest"
+                        sh "docker tag $BACKEND_IMAGE:latest $DOCKER_USERNAME/$BACKEND_IMAGE:backend-v${BUILD_NUMBER}"
                         echo "✅ Backend images tagged successfully."
 
                         echo "🏷️ Tagging frontend images..."
-                        sh "docker tag $FRONTEND_IMAGE:latest $DOCKER_USERNAME/$DOCKERHUB_REPO:frontend-latest"
-                        sh "docker tag $FRONTEND_IMAGE:latest $DOCKER_USERNAME/$DOCKERHUB_REPO:frontend-v${BUILD_NUMBER}"
+                        sh "docker tag $FRONTEND_IMAGE:latest $DOCKER_USERNAME/$FRONTEND_IMAGE:frontend-latest"
+                        sh "docker tag $FRONTEND_IMAGE:latest $DOCKER_USERNAME/$FRONTEND_IMAGE:frontend-v${BUILD_NUMBER}"
                         echo "✅ Frontend images tagged successfully."
 
                         echo "📤 Pushing backend images to DockerHub..."
-                        sh "docker push $DOCKER_USERNAME/$DOCKERHUB_REPO:backend-latest"
-                        sh "docker push $DOCKER_USERNAME/$DOCKERHUB_REPO:backend-v${BUILD_NUMBER}"
+                        sh "docker push $DOCKER_USERNAME/$BACKEND_IMAGE:backend-latest"
+                        sh "docker push $DOCKER_USERNAME/$BACKEND_IMAGE:backend-v${BUILD_NUMBER}"
                         echo "✅ Backend images pushed successfully."
 
                         echo "📤 Pushing frontend images to DockerHub..."
-                        sh "docker push $DOCKER_USERNAME/$DOCKERHUB_REPO:frontend-latest"
-                        sh "docker push $DOCKER_USERNAME/$DOCKERHUB_REPO:frontend-v${BUILD_NUMBER}"
+                        sh "docker push $DOCKER_USERNAME/$FRONTEND_IMAGE:frontend-latest"
+                        sh "docker push $DOCKER_USERNAME/$FRONTEND_IMAGE:frontend-v${BUILD_NUMBER}"
                         echo "✅ Frontend images pushed successfully."
 
                         echo "🚪 Logging out from DockerHub..."
