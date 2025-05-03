@@ -161,40 +161,7 @@ exports.getResults = async(req, res) => {
                 message: 'No submissions found for this test' 
             });
         }
-    
-        // find submissions of each student
-        // const testResults = await Promise.all(
-        //     students.map(async (studentId) => {
-
-        //         // Find the student's submissions for the test
-        //         const submissions = await Submission.find({
-        //         studentId,
-        //         testId
-        //         }).populate('questionId'); 
         
-        //         // Aggregate the student's results for each question
-        //         const studentResults = submissions.map(submission => ({
-        //             question: submission.questionId, 
-        //             code: submission.code,
-        //             language: submission.language,
-        //             results: submission.results,
-        //             submittedAt: submission.submittedAt,
-        //         }));
-        
-                
-        //         const student = await Student.findById(studentId);
-        
-        //         return {
-        //             student: {
-        //                 id: student._id,
-        //                 name: student.name,
-        //                 email: student.email
-        //             },
-        //             submissions: studentResults
-        //         };
-        //     })
-        // );
-    
         //Return aggregated test results
         return res.status(200).json({
             success: true,
