@@ -9,7 +9,7 @@ const Home = () => {
     <div className='h-[100vh] w-[100vw] flex items-center justify-center'>
           {/* info */}
           <div className='flex items-center justify-center flex-col gap-10'>
-            <h1 className='text-2xl font-bold md:text-6xl'>Assessment Platform</h1>
+            <h1 className='text-2xl font-bold md:text-6xl'>Assessment Website</h1>
             <p className='font-medium text-md text-left max-w-[40rem] text-black'>
             Our platform is designed to simplify and elevate the testing process for educators and learners alike.
             With powerful tools for creating, managing, and evaluating assessments, our platform helps instructors focus
